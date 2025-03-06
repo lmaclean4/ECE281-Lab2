@@ -76,26 +76,26 @@ entity top_basys3 is
 	);
 end top_basys3;
 
-architecture top_basys3_arch of top_basys3 is 
-	
-  -- declare the component of your top-level design
-
-
-  -- create wire to connect button to 7SD enable (active-low)
-
-  
+architecture top_basys3_arch of top_basys3 is
+    signal seg_internal : STD_LOGIC_VECTOR(6 downto 0);
+    signal en_7SD_n     : STD_LOGIC;
 begin
-	-- PORT MAPS ----------------------------------------
-
-	--	Port map: wire your component up to the switches and seven-segment display cathodes
-	-----------------------------------------------------	
-	
-	
-	-- CONCURRENT STATEMENTS ----------------------------
-	
-	-- wire up active-low 7SD anode (active low) to button (active-high)
-	-- display 7SD 0 only when button pushed
-	-- other 7SD are kept off
-	-----------------------------------------------------
-	
+    -- Instantiate the seven segment decoder
+    U1: entity work.sevenseg_decoder
+        port map (
+            i_Hex   => sw,
+            o_seg_n => seg_internal
+        );
+        
+    -- Convert btnC (active HIGH push button) to an active LOW enable for display 0.
+    en_7SD_n <= not btnC;
+    
+    -- Drive the seven segment display:
+    seg <= seg_internal;
+    
+    -- Enable only display 0; disable the others.
+    an(0) <= en_7SD_n;
+    an(1) <= '1';
+    an(2) <= '1';
+    an(3) <= '1';
 end top_basys3_arch;
