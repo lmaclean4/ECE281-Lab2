@@ -55,7 +55,7 @@ begin
             when "1000" =>  -- 8: all segments on
                 seg_int <= "0000000";
             when "1001" =>  -- 9: segments a,b,c,d,f,g on
-                seg_int <= "0000100";
+                seg_int <= "0001100";
             when "1010" =>  -- A: segments a,b,c,e,f,g on
                 seg_int <= "0001000";
             when "1011" =>  -- B: segments c,d,e,f,g on (lowercase "b")
