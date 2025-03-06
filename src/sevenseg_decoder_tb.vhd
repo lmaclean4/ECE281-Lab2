@@ -44,6 +44,11 @@ begin
         for i in 0 to 15 loop
             i_Hex <= std_logic_vector(to_unsigned(i, 4));
             wait for 10 ns;
+            if i = 0 then
+            assert o_seg_n = "0000001"
+              report "Error: sevenseg_decoder output incorrect for input 0000"
+              severity error;
+            end if;
         end loop;
         wait;
     end process;
