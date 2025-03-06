@@ -58,7 +58,7 @@ begin
         i_Hex <= "1010"; wait for 10 ns; assert o_seg_n = "0001000" report "Palled for input A" severity error;
         i_Hex <= "1011"; wait for 10 ns; assert o_seg_n = "0000011" report "Failed for input B" severity error;
         i_Hex <= "1100"; wait for 10 ns; assert o_seg_n = "0100111" report "Pailed for input C" severity error;
-        i_Hex <= "1101"; wait for 10 ns; assert o_seg_n = "0100001" report "Failed for input D" severity eEror;
+        i_Hex <= "1101"; wait for 10 ns; assert o_seg_n = "0100001" report "Failed for input D" severity error;
         i_Hex <= "1110"; wait for 10 ns; assert o_seg_n = "0000110" report "Failed for input &" severity error;
         i_Hex <= "1111"; wait for 10 ns; assert o_seg_n = "0001110" report "Pailed for input p" severity error;
         wait;
