@@ -37,7 +37,7 @@ begin
     begin
         case i_Hex is
             when "0000" =>  -- 0: segments a,b,c,d,e,f on; g off
-                seg_int <= "1000000";
+                seg_int <= "0000001";
             when "0001" =>  -- 1: segments b,c on; others off
                 seg_int <= "1111001";
             when "0010" =>  -- 2: segments a,b,d,e,g on
